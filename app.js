@@ -1,13 +1,53 @@
-// Events Module
-const EventEmitter = require('events')
-const eventEmitter = new EventEmitter();
+// working with readline module
 
-eventEmitter.on('mad', (num1, num2)=>{
-    console.log('console mad o emmiter has run !!!', num1+num2)
+const readline  = require('readline');
+const rl =  readline.createInterface({
+
+    input: process.stdin,
+    output: process.stdout  
 
 });
 
- eventEmitter.emit('mad', 2);
+
+let num1 = Math.floor(Math.random() * 10) + 1;
+
+let num2 = Math.floor(Math.random() * 10) + 1;
+let answer = num1 + num2;
+rl.question(`what is ${num1} + ${num2}? \n`, 
+    (userInput)  =>{
+        if(userInput.trim()==answer){
+            rl.close();
+        }
+        else{
+            rl.setPrompt('incorrect input!! \n');
+            rl.prompt();
+            rl.on('line', (userInput)=>{
+                if(userInput==answer){
+                    rl.close();
+                }
+                else{
+                    rl.setPrompt(`your answer of ${ userInput } is wrong try again !! \n`);
+                    rl.prompt();
+                }
+            });
+
+        }
+    });
+
+rl.on('close', ()=>{
+    console.log('closed !!!!!!!')
+});
+
+// Events Module
+// const EventEmitter = require('events')
+// const eventEmitter = new EventEmitter();
+
+// eventEmitter.on('mad', (num1, num2)=>{
+//     console.log('console mad o emmiter has run !!!', num1+num2)
+
+// });
+
+//  eventEmitter.emit('mad', 2);
 
 
 // const tutorial =require('./tutorial')
@@ -18,24 +58,24 @@ eventEmitter.on('mad', (num1, num2)=>{
 
 
 
-class Person extends EventEmitter{
-    constructor(name){
-        super();
-        this._name=name
+// class Person extends EventEmitter{
+//     constructor(name){
+//         super();
+//         this._name=name
 
-    }
-    get name(){
-        return this._name;
-    }
-}
+//     }
+//     get name(){
+//         return this._name;
+//     }
+// }
 
-let toffy =new Person('toffy');
-
-
-toffy.on('name', ()=>{
-    console.log('my name is ' + toffy.name);
-});
+// let toffy =new Person('toffy');
 
 
+// toffy.on('name', ()=>{
+//     console.log('my name is ' + toffy.name);
+// });
 
-toffy.emit('name');
+
+
+// toffy.emit('name');
