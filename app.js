@@ -7,13 +7,40 @@ const fs = require('fs');
 
 
 
-fs.unlink('example.txt', (err)=>{
-    if (err){
-        console.log(err)
-    }else{
-        console.log('file deleted !!!!')
-    }
-} );
+// fs.mkdir('toffy_folder', (err)=>{
+//      if(err){
+//          console.log(err);
+//      }
+//      else{
+        // fs.rmdir('toffy_folder', (err)=>{
+        //     if (err){
+        //         console.log(err);
+        //     }
+        //     else{
+        //         console.log('successfully removed the folder!!!')
+
+        // fs.writeFile('./toffy_folder/toffy.txt', 'shit on my mind i dont wanted to flex',(err)=>{
+        //     if(err){
+        //         console.log(err);
+        //     }
+        //     else{
+        //         console.log('successfully created file')
+        //     }
+        // })
+        //     }
+
+        // })
+        //  console.log('toffy folder successfullly created!!')
+
+
+// DELETING A FILE
+// fs.unlink('example.txt', (err)=>{
+//     if (err){
+//         console.log(err)
+//     }else{
+//         console.log('file deleted !!!!')
+//     }
+// } );
 
 // fs.appendFile('example.txt', 'thijs content was inputed programmatically in to this file not manually', (err)=>{
 //     if (err){
