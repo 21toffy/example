@@ -5,6 +5,24 @@
 
 const fs = require('fs');
 
+
+
+fs.unlink('example.txt', (err)=>{
+    if (err){
+        console.log(err)
+    }else{
+        console.log('file deleted !!!!')
+    }
+} );
+
+// fs.appendFile('example.txt', 'thijs content was inputed programmatically in to this file not manually', (err)=>{
+//     if (err){
+//         console.log(err);
+//     }
+//     else{
+//         console.log('successfully appended data to the file')
+//     }
+// })
 // fs.rename('text.txt', 'example.txt', (err)=>{
 //     if (err){
 //         console.log(err);
