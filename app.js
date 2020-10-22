@@ -1,17 +1,60 @@
-//workin with http
-const http = require('http');
-const server = http.createServer((req, res)=>{
-    if(req.url=== '/'){
-        res.write('hello world from node js !!!!');
-        res.end();
-    }
-    else{
-        res.write('usin some other domain');
-        res.end();
-    }
-});
 
-server.listen('3000')
+// displaying media file/jpg
+const http = require('http');
+const fs = require('fs');
+
+
+http.createServer((req, res)=>{
+    const readStream = fs.createReadStream('./static/juanmatagarcia-20180331-0001.jpg');
+    res.writeHead(200,{'content-type':'image/jpg'});
+    readStream.pipe(res);
+}).listen(3000);
+
+
+// displaying html File
+// const http = require('http');
+// const fs = require('fs');
+
+
+// http.createServer((req, res)=>{
+//     const readStream = fs.createReadStream('./static/index.html');
+//     res.writeHead(200,{'content-type':'text/html'});
+//     readStream.pipe(res);
+// }).listen(3000);
+
+
+// displaying json
+// const http = require('http');
+// const fs = require('fs');
+
+
+// http.createServer((req, res)=>{
+//     const readStream = fs.createReadStream('./static/example.json');
+//     res.writeHead(200,{'content-type':'application/json'});
+//     readStream.pipe(res);
+// }).listen(3000);
+
+
+
+
+
+
+
+
+//workin with http
+// const http = require('http');
+// const server = http.createServer((req, res)=>{
+//     if(req.url=== '/'){
+//         res.write('hello world from node js !!!!');
+//         res.end();
+//     }
+//     else{
+//         res.write('usin some other domain');
+//         res.end();
+//     }
+// });
+
+// server.listen('3000')
 
 // working with readline module
 
