@@ -1,10 +1,28 @@
+//workin with http
+const http = require('http');
+const server = http.createServer((req, res)=>{
+    if(req.url=== '/'){
+        res.write('hello world from node js !!!!');
+        res.end();
+    }
+    else{
+        res.write('usin some other domain');
+        res.end();
+    }
+});
+
+server.listen('3000')
+
 // working with readline module
 
 
 
 
-const fs = require('fs');
-
+// const fs = require('fs');
+// const readStream = fs.createReadStream('./toffy_folder/toffy.txt', 'utf8');
+// readStream.on('data', (chunk)=>{
+//     console.log(chunk);
+// })
 
 
 // fs.mkdir('toffy_folder', (err)=>{
