@@ -1,14 +1,14 @@
-
+const _ = require('lodash');
 // displaying media file/jpg
-const http = require('http');
-const fs = require('fs');
+// const http = require('http');
+// const fs = require('fs');
 
 
-http.createServer((req, res)=>{
-    const readStream = fs.createReadStream('./static/juanmatagarcia-20180331-0001.jpg');
-    res.writeHead(200,{'content-type':'image/jpg'});
-    readStream.pipe(res);
-}).listen(3000);
+// http.createServer((req, res)=>{
+//     const readStream = fs.createReadStream('./static/juanmatagarcia-20180331-0001.jpg');
+//     res.writeHead(200,{'content-type':'image/jpg'});
+//     readStream.pipe(res);
+// }).listen(3000);
 
 
 // displaying html File
