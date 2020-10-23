@@ -1,4 +1,22 @@
-const _ = require('lodash');
+const express = require('express');
+const path = require('path');
+const app = express();
+app.use('/public', express.static(path.join(__dirname, 'static')));
+app.get('/', (req,res)=>{
+    res.sendFile(path.join(__dirname,'static', 'index.html'))
+});
+
+app.get('/example', (req, res)=>{
+    res.send('hitting example route')
+})
+
+app.get('/example/:name/:age', (req, res)=>{
+    res.send(req.params)
+    console.log(req.params.name)
+})
+
+app.listen(3000);
+// const _ = require('lodash');
 // displaying media file/jpg
 // const http = require('http');
 // const fs = require('fs');
